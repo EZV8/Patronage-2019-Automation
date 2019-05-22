@@ -51,3 +51,7 @@ templates_jenkins/.m2/
 # Screenshots   #
 #################
 screenshots/
+
+# APK #
+#################
+*.apk
