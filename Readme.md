@@ -16,5 +16,26 @@ Step 5) [Install Java JDK]()
 Step 6) [Install Node.JS]()  
 Step 7) [Install Appium]()  
 ***
+<<<<<<< Updated upstream
 Check if everything is properly installed nas has environment patches.  
 
+=======
+Set environment patches.   
+`$ open .bash_profile`   
+If file isn't available - create one and set variables.  
+`$ touch .bash_profile`
+```
+export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+export PATH=$PATH:$M2_HOME/bin
+export ANDROID_HOME=/Users/user/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
+```
+***
+At the end run AppiumDoctor. It will check if you are able to write and run automated test.   
+`$ appium-doctor`
+***
+![](http://i.imgur.com/hnr4NWw.png)
+final
+>>>>>>> Stashed changes

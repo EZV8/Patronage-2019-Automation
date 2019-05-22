@@ -3,6 +3,7 @@ Feature: Testing main screen of ConfR app
   Background:
     Given  I open application
 
+  @xs
   Scenario: Opening application and swiping on screen
     When I scroll view
     Then I can see that date has changed
@@ -14,7 +15,3 @@ Feature: Testing main screen of ConfR app
   Scenario: Changing date to the previous day
     When I click previous day button
     Then I can see previous day
-
-  Scenario: Zooming the main screen
-    When I zoom out screen
-    Then I am able to see full hours view list

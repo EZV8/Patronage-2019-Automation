@@ -42,6 +42,14 @@ Feature: As a user I want to interact with calendar
     And I click cancel button
     Then I will return to current day screen
 
+  Scenario: I am on today day screen after canceling date pick and year
+    When I click today date bar
+    And I switch to another day
+    And I click top left year field
+    And I chose another year
+    And I click cancel button
+    Then I will return to current day screen
+
   Scenario: I am testing "Go to today" function
     When I click today date bar
     And I click top left year field

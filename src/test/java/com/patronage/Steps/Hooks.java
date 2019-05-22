@@ -31,7 +31,7 @@ public class Hooks extends DriverFactory {
     @After
     public void afterScenario(Scenario scenario) throws IOException {
         String status = (scenario.isFailed() ? "FAILED" : "SUCCESS");
-        logger.debug("=======================================SCENARIO FINISHED WITH " + status + " STATUS");
+        logger.info("=======================================SCENARIO FINISHED WITH " + status + " STATUS");
         if (scenario.isFailed() && driver != null) {
 
             byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -43,6 +43,6 @@ public class Hooks extends DriverFactory {
                     + "-" + new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()) + ".png"));
         }
         destroyDriver();
-        logger.debug("============================================CLEANUP AFTER SCENARIO FINISHED");
+        logger.info("============================================CLEANUP AFTER SCENARIO FINISHED");
     }
 }
