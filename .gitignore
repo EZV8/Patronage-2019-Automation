@@ -54,4 +54,4 @@ screenshots/
 
 # APK #
 #################
-*.apk
+src/test/resources/Applications
