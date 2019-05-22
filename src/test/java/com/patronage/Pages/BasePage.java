@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
-    private static MobileDriver driver;
+    public static MobileDriver driver;
 
     public BasePage(MobileDriver driver) {
         BasePage.driver = driver;

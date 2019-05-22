@@ -17,7 +17,8 @@ import java.util.Date;
 
 public class Hooks extends DriverFactory {
 
-    public Hooks() { }
+    public Hooks() {
+    }
 
     @Before
     public void beforeScenario(Scenario scenario) throws MalformedURLException {

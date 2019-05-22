@@ -12,31 +12,27 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-
 public class DriverFactory {
-    protected static AppiumDriver driver;
     protected static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
+    protected static AppiumDriver driver;
 
-    public DriverFactory() { }
+    public DriverFactory() {
+    }
 
     public void runAndroidDriver(String noReset) throws MalformedURLException {
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName","Android");
-        capabilities.setCapability("app", getAndroidAppPath());
-        //NEED TO CHANGE APPLICATION IN RESOURCES FROM TIME TO TIME TO GET THE LATEST
+        capabilities.setCapability("deviceName", "Android");
+        capabilities.setCapability("app", getAndroidAppPath());// CHANGE APPLICATION IN RESOURCES FROM TIME TO TIME TO GET THE LATEST VERSION
         capabilities.setCapability("appPackage", "com.intive.confr");
         capabilities.setCapability("appActivity", "com.intive.confr.main.login.view.LoginActivity");
         capabilities.setCapability("noReset", noReset);
-
         URL localAppium = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(localAppium, capabilities);
         driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
 
     private String getAndroidAppPath() {
-
         String appName = "ConfR-v1.0-build-1-debug.apk";
         String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
         String path = currentPath
@@ -47,10 +43,9 @@ public class DriverFactory {
                 + File.separator
                 + "resources"
                 + File.separator
-                +"Applications"
-                +File.separator;
+                + "Applications"
+                + File.separator;
         path += appName;
-
         return path;
     }
 

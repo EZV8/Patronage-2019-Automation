@@ -1,29 +1,23 @@
 # ConfR_QA_mobile - Android Testing
 ## Getting Started
 
-This instruction is a set of useful information which will help you configure your environment, make a copy of the ConfR project for android and run automated tests on your local machine.
+This instruction is a set of useful information which will help you configure your entire environment, make a copy of the ConfR Android app and run automated tests on your local machine.
 
 ## Installation - step by step
 You will need the following tools:
-* Step 1 (GIT):
+* Step 1[Install GIT](https://git-scm.com/download/)
 
-[Install GIT](https://git-scm.com/download/win)
+Run Git Bash and clone repository from [GitLab](https://intive-patronage.westeurope.cloudapp.azure.com/) using:
 
-Run Git Bash and clone repository from GitLab.
+`$ git clone git@intive-patronage.westeurope.cloudapp.azure.com:patronage/confr_qa_mobile.git`
 
-[Link to GitLab](https://intive-patronage.westeurope.cloudapp.azure.com/)
+* Step 2 [Install IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/downloadthanks.html?platform=windows&code=IIC)
 
-`$ git clone git@intive-patronage.westeurope.cloudapp.azure.com:patronage/confr_qa_mobile.git` 	
+* Step 3 [Install Java](https://www.java.com/pl/download/win10.jsp)
+& [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* Step 2 (IntelliJ IDEA Community Edition):
+* Step 4 (ChromeDriver, GeckoDriver, Web Inspector):
 
-[Install IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/downloadthanks.html?platform=windows&code=IIC)
-
-* Step 3 (Java & Java JDK):
-[Install Java](https://www.java.com/pl/download/win10.jsp)
-[Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-
-* Step 4 (Chromedriver, Geckodriver, Web Inspector):
 [Install Chromedriver](http://chromedriver.chromium.org/) and add into Path
 Check if Chromedriver is correctly installed
 
@@ -38,24 +32,20 @@ Check if Chromedriver is correctly installed
 * Step 5 (Java into the PATH):
 > Set the JAVA_HOME Variable
 
-* Step 6 (MAVEN):
-[Download Apache Maven](http://maven.apache.org/download.cgi)
+* Step 6 [Download Apache Maven](http://maven.apache.org/download.cgi)
 
 Check: `$ mvn -version`
 > add MAVEN_HOME Variable
 
-* Step 7 (Android Studio):
-[Install Android Studio](https://developer.android.com/studio)
+* Step 7 [Install Android Studio](https://developer.android.com/studio)
 > add ANDROID_HOME Variable
 
-* Step 8 (Appium, Appium-doctor, Node.js):
-[Install Appium](https://github.com/appium/appium-desktop/releases/latest)
+* Step 8 [Install Appium](https://github.com/appium/appium-desktop/releases/latest)
+& [Node.js](https://nodejs.org/en/)
 
 `$ npm install -g appium`
 
 Check: `$ appium`
-
-[Install Node.js](https://nodejs.org/en/)
 
 Check: `$ node -v`
 
@@ -66,7 +56,15 @@ Check: `$ npm -v`
 `$ npm install appium-doctor -g`
 
 Check: `appium-doctor`
-
 ***
 If everything went properly you shouldn't get any errors.
 ![](https://i0.wp.com/www.softwaretestingmaterial.com/wp-content/uploads/2017/09/Appium-With-NodeJs-9.png?resize=891%2C459&ssl=1)
+***
+## Running tests
+***
+Remember to manually update "ConfR-v1.0-build-1-debug.apk" file in repository.
+***
+Run all tests in repository using `mvn clean test -Dmobile="android"`
+
+Run specific test `mvn test -Dcucumber.options="--tags @TAG"`  
+(Remember to add your own tag before scenario)
