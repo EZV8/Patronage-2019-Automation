@@ -30,8 +30,8 @@ public class CalendarPage extends BasePage {
     @AndroidFindBy(id = "date_picker_header_year")
     public MobileElement yearButtonPicker;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.ScrollView/android.widget.ViewAnimator/android.widget.ListView/android.widget.TextView[6]\n")
-    public MobileElement pickedYear;//Test tego elementu do przemyslenia. Mozna uzyc tej funkcji do randomowania pozniej.
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.DatePicker/android.widget.LinearLayout/android.widget.ScrollView/android.widget.ViewAnimator/android.widget.ListView/android.widget.TextView[6]")
+    public MobileElement pickedYear;
 
     @AndroidFindBy(id = "actionGoToToday")
     public MobileElement goToTodayButton;

@@ -4,16 +4,6 @@ Feature: As a trainee I'm testing new source code here
   Background:
     Given I open application
 
-  @left
-  Scenario: Testing scrolling to the left
-    When  I scroll to the left
-    Then I am on the next page
-
-  @right
-  Scenario:  Testing scrolling to the right
-    When I scroll to the right
-    Then I am on previous day
-
   @down
   Scenario:  Testing scrolling to the down
     When I scroll down

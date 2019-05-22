@@ -1,4 +1,4 @@
-Feature: As a user I want to be able to login in ConfR mobile app
+Feature: As a user I want to be able to login in ConfR mobile app - Internet is connected
 
   Background:
     Given I open application

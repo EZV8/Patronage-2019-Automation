@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 public class SamplePage extends BasePage {
 
     @AndroidFindBy(id = "weekView")
-    public MobileElement weekView;//Biale pole z godzinami i kreska przy aktualnym czasie
+    public MobileElement weekView;
 
     public SamplePage(MobileDriver driver) {
         super(driver);

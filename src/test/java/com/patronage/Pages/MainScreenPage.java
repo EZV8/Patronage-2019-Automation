@@ -15,6 +15,9 @@ public class MainScreenPage extends BasePage {
     @AndroidFindBy(id = "previous_button")
     public MobileElement previousDayButton;
 
+    @AndroidFindBy(id = "dateView")
+    public MobileElement todayDateBar;
+
     @AndroidFindBy(accessibility = "More options")
     public MobileElement optionsButton;
 

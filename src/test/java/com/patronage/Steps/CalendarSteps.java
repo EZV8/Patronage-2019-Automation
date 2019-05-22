@@ -63,7 +63,7 @@ public class CalendarSteps extends DriverFactory {
 
     @And("^I switch to another day$")
     public void iSwitchToAnotherDay() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", new Locale("en"));//np 19 may 2015
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", new Locale("en"));//19 may 2015
         Random random = new Random();
         int randomNumber = random.nextInt(14) + 1;
         Calendar calendar = Calendar.getInstance();
@@ -71,6 +71,7 @@ public class CalendarSteps extends DriverFactory {
         calendar.add(Calendar.DATE, randomNumber);
         todayDate = calendar.getTime();
         String randomDay = dateFormat.format(todayDate);
+        //Rest of code TBA
     }
 
     @Then("^I will return to current day screen$")
@@ -112,7 +113,7 @@ public class CalendarSteps extends DriverFactory {
     @Then("^I can see that year has changed$")
     public void iCanSeeThatYearHasChanged() {
         try {
-            Assert.assertNotEquals("2018", calendarPage.yearButtonPicker.getText());
+            Assert.assertNotEquals("2019", calendarPage.yearButtonPicker.getText());
         } catch (Throwable t) {
             System.out.println("Failed to switch year");
         }

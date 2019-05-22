@@ -4,13 +4,23 @@ import com.patronage.DriverFactory;
 import com.patronage.Pages.MainScreenPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import org.junit.Assert;
 import org.openqa.selenium.Dimension;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainScreenSteps extends DriverFactory {
     private MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+    private String displayedDate = mainScreenPage.todayDateBar.getText();
+    private String errorMessage = "Date didn't change";
+    private Date dateToday = new Date();
+    private SimpleDateFormat dateWithDots = new SimpleDateFormat("dd.MM.yyyy");
+    private Calendar calendar = Calendar.getInstance();
 
     @When("^I scroll view$")
     public void iScrollView() {
@@ -26,19 +36,9 @@ public class MainScreenSteps extends DriverFactory {
         action.release().perform();
     }
 
-    @Then("^I can see that date has changed$")
-    public void iCanSeeThatDateHasChanged() {
-        //Nothing to do here at least for now... Assertion needed
-    }
-
     @When("^I click next day button$")
     public void iClickNextDayButton() {
         mainScreenPage.nextDayButton.click();
-    }
-
-    @Then("^I can see next day$")
-    public void iCanSeeNextDay() {
-        //Nothing to do here at least for now... Assertion needed
     }
 
     @When("^I click previous day button$")
@@ -46,31 +46,39 @@ public class MainScreenSteps extends DriverFactory {
         mainScreenPage.previousDayButton.click();
     }
 
+
+    @Then("^I can see that date has changed$")
+    public void iCanSeeThatDateHasChanged() {
+        try {
+            Assert.assertNotEquals("today ", displayedDate);
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
+    }
+
+    @Then("^I can see next day$")
+    public void iCanSeeNextDay() {
+        try {
+            calendar.setTime(dateToday);
+            calendar.add(Calendar.DATE, 1);
+            dateToday = calendar.getTime();
+            String dateTomorrow = dateWithDots.format(dateToday);
+            Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateTomorrow);
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
+    }
+
     @Then("^I can see previous day$")
     public void iCanSeePreviousDay() {
-        //Nothing to do here at least for now... Assertion needed
-    }
-
-    @When("^I zoom out screen$")
-    public void iZoomOutScreen() {
-        Dimension size = driver.manage().window().getSize();
-        int startX = (int) (size.getWidth());
-        int startY = (int) (size.getHeight());
-        System.out.println(startY + "" + startX);//Po co to komu?
-        TouchAction action = new TouchAction(driver);
-        TouchAction action2 = new TouchAction(driver);
-        MultiTouchAction multiTouchAction = new MultiTouchAction(driver);
-        action.press(PointOption.point(100, startY - 100));
-        action2.press(PointOption.point(100, 500));
-        action2.moveTo(PointOption.point(100, 900));
-        action.moveTo(PointOption.point(100, startY / 2));
-        action.release();
-        action2.release();
-        multiTouchAction.add(action).add(action2).perform();
-    }
-
-    @Then("^I am able to see full hours view list$")
-    public void iAmAbleToSeeFullHoursViewList() {
-        //Nothing to do here at least for now... Assertion needed
+        try {
+            calendar.setTime(dateToday);
+            calendar.add(Calendar.DATE, -1);
+            dateToday = calendar.getTime();
+            String dateYesterday = dateWithDots.format(dateToday);
+            Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateYesterday);
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
     }
 }
