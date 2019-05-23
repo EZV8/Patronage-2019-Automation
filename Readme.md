@@ -1,25 +1,56 @@
-# Patronage 2019 - Mobile automated tests
-This repository is created for tracking my progress during Patronage 2019 program. The main build was created by our Team Leader.
+# Patronage 2019 - Automated tests
+This repository is created for tracking my progress during Patronage 2019 program. The main build was provided by our Team Leader.  
+Main goal was to provide test for **Android** and **iOS** application, but unfortunately iOS dev team has been disbanded. Hoverer I have some run thru tests for WebDriverAgent - they will be included in other repository.
 
-**Repository contains mostly my work, however if some source code is important to proper build and code wasn't written by me, it will be included and marked.**
-# GETTING STARTED
+**Repository contains mostly my work, however if some source code is important to proper work of repo, and it wasn't written by me, it will be included and marked.**
+# Getting started
 This simple guide will help you create your entire environment for running tests on **macOS**.
 ***
 [Install HomeBrew](https://brew.sh) - The missing package manager for macOS.   
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 ***
-Step 1) [Install GIT]()  
-Step 2) [Install IntelliJ IDEA]()  
-Step 3) [Install AndroidStudio]()  
-Step 4) [Install Apache Maven]()  
-Step 5) [Install Java JDK]()  
-Step 6) [Install Node.JS]()  
-Step 7) [Install Appium]()  
-***
-<<<<<<< Updated upstream
-Check if everything is properly installed nas has environment patches.  
+[Install GIT](https://git-scm.com/downloads)  
+`$ brew install git`
 
-=======
+[Install IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=mac)  
+`$ brew cask install intellij-idea-ce`
+
+[Install Xcode](https://developer.apple.com/xcode/)  
+`$ xcode-select --install`
+
+[Install Carthage](https://github.com/Carthage/Carthage)  
+`$ brew install carthage`
+
+[Install AndroidStudio](http://macappstore.org/android-studio/)  
+`$ brew cask install android-studio`
+
+[Install Apache Maven](https://maven.apache.org/download.cgi)  
+`$ brew install maven`
+
+[Install Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html)  
+`$ brew cask install java`
+
+[Install Node.JS](https://nodejs.org/en/download/)  
+`$ brew install node`
+
+[Install NPM](https://treehouse.github.io/installation-guides/mac/node-mac.html)  
+`$ npm install`
+
+[Install Appium](http://appium.io)  
+`$ npm install -g appium`  
+`$ npm install wd`
+
+[Install AppiumDoctor](https://github.com/appium/appium-doctor)  
+`$ npm install appium-doctor -g`
+***
+Check if everything is properly installed
+```
+git --version
+mvn --version
+java --version
+node --version
+npm --version
+```
 Set environment patches.   
 `$ open .bash_profile`   
 If file isn't available - create one and set variables.  
@@ -37,5 +68,7 @@ At the end run AppiumDoctor. It will check if you are able to write and run auto
 `$ appium-doctor`
 ***
 ![](http://i.imgur.com/hnr4NWw.png)
-final
->>>>>>> Stashed changes
+# Running tests
+Run all test: `mvn clean test -Dmobile="Android"`  
+Run single one<small><small><small><small>(add your own @tag before scenario)</small></small></small></small>: `mvn test -Dcucumber.options="--tags @tag"`
+
