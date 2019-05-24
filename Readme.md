@@ -1,6 +1,6 @@
 # Patronage 2019 - Automated tests
 This repository is created for tracking my progress during Patronage 2019 program. The main build was provided by our Team Leader.  
-Main goal was to provide test for **Android** and **iOS** application, but unfortunately iOS dev team has been disbanded. Hoverer I have some run thru tests for WebDriverAgent - they will be included in other repository.
+Main goal was to create tests for **Android** and **iOS** application, but unfortunately iOS dev team has been disbanded. Hoverer I have some run thru tests for WebDriverAgent - they will be included in other repository.
 
 **Repository contains mostly my work, however if some source code is important to proper work of repo, and it wasn't written by me, it will be included and marked.**
 # Getting started

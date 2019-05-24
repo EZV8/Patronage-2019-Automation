@@ -4,6 +4,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
+//Class provided by team leader
 public class BasePage {
 
     public static MobileDriver driver;

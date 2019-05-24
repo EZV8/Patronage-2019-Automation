@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,8 +17,11 @@ import java.util.Random;
 public class CalendarSteps extends DriverFactory {
     private CalendarPage calendarPage = new CalendarPage(driver);
 
+    private Random random = new Random();
+    private Calendar calendar = Calendar.getInstance();
     private Date todayDate = new Date();
     private SimpleDateFormat dateWithDots = new SimpleDateFormat("dd.MM.yyyy");//np: 19.05.2015
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", new Locale("en"));//19 may 2015
     private String todayDateWithDots = dateWithDots.format(todayDate);
     private String errorMessage = "Element wasn't displayed";
 
@@ -63,15 +67,26 @@ public class CalendarSteps extends DriverFactory {
 
     @And("^I switch to another day$")
     public void iSwitchToAnotherDay() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", new Locale("en"));//19 may 2015
-        Random random = new Random();
-        int randomNumber = random.nextInt(14) + 1;
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(todayDate);
-        calendar.add(Calendar.DATE, randomNumber);
-        todayDate = calendar.getTime();
-        String randomDay = dateFormat.format(todayDate);
-        //Rest of code TBA
+        SimpleDateFormat day = new SimpleDateFormat("dd", new Locale("en"));
+        int x = Integer.parseInt(day.format(todayDate));
+        if (x > 0 && x < 23) {
+            int randomNumber = random.nextInt((8 - 1) + 1) + 1;
+            calendar.setTime(todayDate);
+            calendar.add(Calendar.DATE, randomNumber);
+            todayDate = calendar.getTime();
+            String randomDay = dateFormat.format(todayDate);
+            driver.findElement(By.xpath("//android.view.View[@content-desc=\"" + randomDay + "\"]\n")).click();
+        } else {
+            calendarPage.nextMonthButton.click();
+            int randomNumber = random.nextInt((8 - 1) + 1) + 1;
+            calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR));
+            calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) + 1);
+            calendar.set(Calendar.DAY_OF_MONTH, 1);
+            calendar.add(Calendar.DATE, randomNumber);
+            todayDate = calendar.getTime();
+            String randomDay = dateFormat.format(todayDate);
+            driver.findElement(By.xpath("//android.view.View[@content-desc=\"" + randomDay + "\"]\n")).click();
+        }
     }
 
     @Then("^I will return to current day screen$")
@@ -122,8 +137,9 @@ public class CalendarSteps extends DriverFactory {
     @Then("^I can see hours view for this day$")
     public void iCanSeeHoursViewForThisDay() {
         try {
-            calendarPage.calendarMainScreen.isDisplayed();
-        } catch (Throwable t) {
+            Assert.assertNotEquals(todayDateWithDots, calendarPage.todayDateBar.getText());
+        } catch (
+                Throwable t) {
             System.out.println(errorMessage);
         }
     }
