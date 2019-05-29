@@ -4,7 +4,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class LoginPage extends BasePage {
+public class LogInPage extends BasePage {
 
     @AndroidFindBy(id = "emailText")
     public MobileElement emailBox;
@@ -15,7 +15,7 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(id = "signButton")
     public MobileElement signButton;
 
-    public LoginPage(MobileDriver driver) {
+    public LogInPage(MobileDriver driver) {
         super(driver);
     }
 }

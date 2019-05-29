@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//Class provided by team leader
 public class Hooks extends DriverFactory {
 
     public Hooks() {

@@ -12,7 +12,6 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-//Class provided by Team leader
 public class DriverFactory {
     protected static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
     protected static AppiumDriver driver;

@@ -4,12 +4,12 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class SamplePage extends BasePage {
+public class LogOutPage extends BasePage {
 
-    @AndroidFindBy(id = "weekView")
-    public MobileElement weekView;
+    @AndroidFindBy(id = "logOutButton")
+    public MobileElement logOutButton;
 
-    public SamplePage(MobileDriver driver) {
+    public LogOutPage(MobileDriver driver) {
         super(driver);
     }
 }

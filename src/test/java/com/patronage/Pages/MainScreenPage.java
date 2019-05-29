@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 public class MainScreenPage extends BasePage {
 
     @AndroidFindBy(id = "weekView")
-    public MobileElement weekView;
+    public MobileElement calendarMainScreen;
 
     @AndroidFindBy(id = "next_button")
     public MobileElement nextDayButton;

@@ -1,12 +1,17 @@
 package com.patronage.Steps;
 
 import com.patronage.DriverFactory;
-import com.patronage.Pages.LoginPage;
+import com.patronage.Pages.LogInPage;
+import com.patronage.Pages.MainScreenPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LoginSteps extends DriverFactory {
-    private LoginPage loginPage = new LoginPage(driver);
+public class LogInSteps extends DriverFactory {
+    private LogInPage loginPage = new LogInPage(driver);
+    private MainScreenPage mainScreenPage = new MainScreenPage(driver);
+
+    private String errorMessage = "Element wasn't displayed";
 
     @When("^I sign in using \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iSignInUsingAnd(String email, String password) {
@@ -29,10 +34,44 @@ public class LoginSteps extends DriverFactory {
         //loginPage.signButton.click();
     }
 
-    @Then("^I'm on main screen$")
-    public void iMOnMainScreen() {
+    @And("^I click sign in button$")
+    public void iClickSignInButton() {
+        //loginPage.signButton.click();
+    }
+
+    @Then("^I can see main screen page$")
+    public void iCanSeeMainScreenPage() {
         try {
+            //mainScreenPage.calendarMainScreen.isDisplayed();
         } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
+    }
+
+    @And("^I can see password box$")
+    public void iCanSeePasswordBox() {
+        try {
+            //loginPage.passwordBox.isDisplayed();
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
+    }
+
+    @And("^I can see sign in button$")
+    public void iCanSeeSignInButton() {
+        try {
+            //loginPage.signButton.isDisplayed();
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
+        }
+    }
+
+    @Then("^I can see email box$")
+    public void iCanSeeEmailBox() {
+        try {
+            //loginPage.emailBox.isDisplayed();
+        } catch (Throwable t) {
+            System.out.println(errorMessage);
         }
     }
 
@@ -40,6 +79,7 @@ public class LoginSteps extends DriverFactory {
     public void iCanSeeWarningMessage() {
         try {
         } catch (Throwable t) {
+            System.out.println(errorMessage);
         }
     }
 }

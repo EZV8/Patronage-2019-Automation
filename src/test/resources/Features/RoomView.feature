@@ -1,1 +1,1 @@
-Feature: As a user, I want to be able to see rooms
+Feature: As a user, I want to be able to see rooms of ConfR Android app

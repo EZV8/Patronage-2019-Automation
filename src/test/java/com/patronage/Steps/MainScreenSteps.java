@@ -4,10 +4,7 @@ import com.patronage.DriverFactory;
 import com.patronage.Pages.MainScreenPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
 import org.junit.Assert;
-import org.openqa.selenium.Dimension;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,20 +19,6 @@ public class MainScreenSteps extends DriverFactory {
     private SimpleDateFormat dateWithDots = new SimpleDateFormat("dd.MM.yyyy");
     private Calendar calendar = Calendar.getInstance();
 
-    @When("^I scroll view$")
-    public void iScrollView() {
-        Dimension size = mainScreenPage.weekView.getSize();
-        int startY = (int) (size.height * 0.3);
-        int startX = size.width / 2;
-        TouchAction action = new TouchAction(driver);
-        action.press(PointOption.point(startX, startY));
-        action.moveTo(PointOption.point(startX, 10));
-        action.release().perform();
-        action.press(PointOption.point(startX, startY));
-        action.moveTo(PointOption.point(startX, size.height - 100));
-        action.release().perform();
-    }
-
     @When("^I click next day button$")
     public void iClickNextDayButton() {
         mainScreenPage.nextDayButton.click();
@@ -45,7 +28,6 @@ public class MainScreenSteps extends DriverFactory {
     public void iClickPreviousDayButton() {
         mainScreenPage.previousDayButton.click();
     }
-
 
     @Then("^I can see that date has changed$")
     public void iCanSeeThatDateHasChanged() {
