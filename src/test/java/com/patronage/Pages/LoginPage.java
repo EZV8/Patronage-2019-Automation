@@ -6,14 +6,23 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LogInPage extends BasePage {
 
-    @AndroidFindBy(id = "emailText")
+    @AndroidFindBy(id = "i0116")
     public MobileElement emailBox;
 
-    @AndroidFindBy(id = "PasswdText")
+    @AndroidFindBy(id = "i0118")
     public MobileElement passwordBox;
 
-    @AndroidFindBy(id = "signButton")
+    @AndroidFindBy(xpath = "//android.webkit.WebView[@content-desc=\"Sign in to your account\"]/android.view.View/android.view.View[2]/android.view.View[5]\n")
     public MobileElement signButton;
+
+    @AndroidFindBy(id = "idSIButton9")
+    public MobileElement nextButton;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Sign in with beth.smith@patronage.onmicrosoft.com work or school account. Pick an account \"]\n")
+    public MobileElement bethSmith;
+
+    @AndroidFindBy (id = "i0281")
+    public MobileElement loginScreen;
 
     public LogInPage(MobileDriver driver) {
         super(driver);

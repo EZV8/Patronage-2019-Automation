@@ -74,11 +74,7 @@ public class CalendarSteps extends DriverFactory {
 
     @Then("^I can see that calendar component is displayed$")
     public void iCanSeeThatCalendarComponentIsDisplayed() {
-        try {
-            calendarPage.calendarViewComponent.isDisplayed();
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        calendarPage.calendarViewComponent.isDisplayed();
     }
 
     @Then("^I can see previous month$")
