@@ -4,6 +4,7 @@ import com.patronage.DriverFactory;
 import com.patronage.Pages.BasePage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class GlobalSteps extends DriverFactory {
@@ -40,5 +41,10 @@ public class GlobalSteps extends DriverFactory {
     @And("^I return to application again$")
     public void iReturnToApplicationAgain() {
         driver.launchApp();
+    }
+
+    @Then("^I should see warning message$")
+    public void iShouldSeeWarningMessage() {
+        basePage.warningMessage.isDisplayed();
     }
 }

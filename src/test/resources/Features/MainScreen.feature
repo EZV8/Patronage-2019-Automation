@@ -2,6 +2,8 @@ Feature: Testing main screen of ConfR Android app
 
   Background:
     Given  I open application
+    And I sign in using "beth.smith@patronage.onmicrosoft.com" and "@Intive12345678"
+    And I click sign in button
 
   Scenario: I open application and scroll to the left
     When I scroll to the left

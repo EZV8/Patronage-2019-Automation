@@ -2,6 +2,8 @@ Feature: As a user I want to interact with calendar of ConfR Android app
 
   Background:
     Given I open application
+    And I sign in using "beth.smith@patronage.onmicrosoft.com" and "@Intive12345678"
+    And I click sign in button
 
   Scenario: I am able to see calendar component
     When I click today date bar

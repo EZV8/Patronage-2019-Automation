@@ -1,7 +1,9 @@
 package com.patronage.Pages;
 
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -28,4 +30,7 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    @AndroidFindBy(id = "warningMassage")
+    public MobileElement warningMessage;
 }
