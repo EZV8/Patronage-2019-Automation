@@ -69,4 +69,4 @@ At the end run AppiumDoctor. It will check if you are able to write and run auto
 ***
 ![](http://i.imgur.com/hnr4NWw.png)
 # Running tests
-Run all test: `mvn clean test -Dmobile="Android"`  
+Run all test: `mvn clean test -Dmobile="Android"` 
