@@ -11,12 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CalendarSteps extends DriverFactory {
+
     private CalendarPage calendarPage = new CalendarPage(driver);
 
     private Date todayDate = new Date();
     private SimpleDateFormat dateWithDots = new SimpleDateFormat("dd.MM.yyyy");
     private String todayDateWithDots = dateWithDots.format(todayDate);
-    private String errorMessage = "Element wasn't displayed";
 
     @When("^I click today date bar$")
     public void iClickTodayDateBar() {
@@ -65,11 +65,7 @@ public class CalendarSteps extends DriverFactory {
 
     @Then("^I will return to current day screen$")
     public void iWillReturnToCurrentDayScreen() {
-        try {
-            Assert.assertEquals("today " + todayDateWithDots, calendarPage.todayDateBar.getText());
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        Assert.assertEquals("today " + todayDateWithDots, calendarPage.todayDateBar.getText());
     }
 
     @Then("^I can see that calendar component is displayed$")
@@ -79,37 +75,21 @@ public class CalendarSteps extends DriverFactory {
 
     @Then("^I can see previous month$")
     public void iCanSeePreviousMonth() {
-        try {
-            //Assertion needed
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        //There is no way to assert that in application for now
     }
 
     @Then("^I can see next month$")
     public void iCanSeeNextMonth() {
-        try {
-        } catch (Throwable t) {
-            //Assertion needed
-            System.out.println(errorMessage);
-        }
+        //There is no way to assert that in application for now
     }
 
     @Then("^I can see that year has changed$")
     public void iCanSeeThatYearHasChanged() {
-        try {
-            Assert.assertNotEquals("2019", calendarPage.yearButtonPicker.getText());
-        } catch (Throwable t) {
-            System.out.println("Failed to switch year");
-        }
+        Assert.assertNotEquals("2019", calendarPage.yearButtonPicker.getText());
     }
 
     @Then("^I can see hours view for this day$")
     public void iCanSeeHoursViewForThisDay() {
-        try {
-            Assert.assertNotEquals(todayDateWithDots, calendarPage.todayDateBar.getText());
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        Assert.assertNotEquals(todayDateWithDots, calendarPage.todayDateBar.getText());
     }
 }

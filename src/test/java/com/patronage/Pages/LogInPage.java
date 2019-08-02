@@ -18,6 +18,7 @@ public class LogInPage extends BasePage {
     @AndroidFindBy(id = "idSIButton9")
     public MobileElement nextButton;
 
+    //It is like that cause application didn't work properly and there was no more time to fix it
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Sign in with beth.smith@patronage.onmicrosoft.com work or school account. Pick an account \"]\n")
     public MobileElement bethSmith;
 

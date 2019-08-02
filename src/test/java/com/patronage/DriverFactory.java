@@ -2,6 +2,7 @@ package com.patronage;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,11 +14,9 @@ import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
+
     protected static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
     protected static AppiumDriver driver;
-
-    public DriverFactory() {
-    }
 
     public void runAndroidDriver(String noReset) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -32,6 +31,7 @@ public class DriverFactory {
         driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
 
+    @NotNull
     private String getAndroidAppPath() {
         String appName = "ConfR-v1.0-build-1-debug.apk";
         String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();

@@ -14,7 +14,6 @@ public class MainScreenSteps extends DriverFactory {
     private MainScreenPage mainScreenPage = new MainScreenPage(driver);
 
     private String displayedDate = mainScreenPage.todayDateBar.getText();
-    private String errorMessage = "Date didn't change";
     private Date dateToday = new Date();
     private SimpleDateFormat dateWithDots = new SimpleDateFormat("dd.MM.yyyy");
     private Calendar calendar = Calendar.getInstance();
@@ -31,36 +30,24 @@ public class MainScreenSteps extends DriverFactory {
 
     @Then("^I can see that date has changed$")
     public void iCanSeeThatDateHasChanged() {
-        try {
-            Assert.assertNotEquals("today ", displayedDate);
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        Assert.assertNotEquals("today ", displayedDate);
     }
 
     @Then("^I can see next day$")
     public void iCanSeeNextDay() {
-        try {
-            calendar.setTime(dateToday);
-            calendar.add(Calendar.DATE, 1);
-            dateToday = calendar.getTime();
-            String dateTomorrow = dateWithDots.format(dateToday);
-            Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateTomorrow);
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        calendar.setTime(dateToday);
+        calendar.add(Calendar.DATE, 1);
+        dateToday = calendar.getTime();
+        String dateTomorrow = dateWithDots.format(dateToday);
+        Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateTomorrow);
     }
 
     @Then("^I can see previous day$")
     public void iCanSeePreviousDay() {
-        try {
-            calendar.setTime(dateToday);
-            calendar.add(Calendar.DATE, -1);
-            dateToday = calendar.getTime();
-            String dateYesterday = dateWithDots.format(dateToday);
-            Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateYesterday);
-        } catch (Throwable t) {
-            System.out.println(errorMessage);
-        }
+        calendar.setTime(dateToday);
+        calendar.add(Calendar.DATE, -1);
+        dateToday = calendar.getTime();
+        String dateYesterday = dateWithDots.format(dateToday);
+        Assert.assertEquals(mainScreenPage.todayDateBar.getText(), dateYesterday);
     }
 }

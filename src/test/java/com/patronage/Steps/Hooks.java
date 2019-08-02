@@ -5,6 +5,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.apache.commons.io.FileUtils;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -21,7 +22,7 @@ public class Hooks extends DriverFactory {
     }
 
     @Before
-    public void beforeScenario(Scenario scenario) throws MalformedURLException {
+    public void beforeScenario(@NotNull Scenario scenario) throws MalformedURLException {
         String scenarioName = scenario.getName();
         logger.info("=========== Start ===========");
         logger.info("======== " + scenarioName + " =========");
@@ -29,7 +30,7 @@ public class Hooks extends DriverFactory {
     }
 
     @After
-    public void afterScenario(Scenario scenario) throws IOException {
+    public void afterScenario(@NotNull Scenario scenario) throws IOException {
         String status = (scenario.isFailed() ? "FAILED" : "SUCCESS");
         logger.info("=======================================SCENARIO FINISHED WITH " + status + " STATUS");
         if (scenario.isFailed() && driver != null) {

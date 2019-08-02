@@ -8,6 +8,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class GlobalSteps extends DriverFactory {
+
     private BasePage basePage = new BasePage(driver);
 
     @Given("^I open application$")

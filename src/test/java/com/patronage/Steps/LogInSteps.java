@@ -60,5 +60,4 @@ public class LogInSteps extends DriverFactory {
     @Then("^I can see warning message$")
     public void iCanSeeWarningMessage() {
     }
-
 }
