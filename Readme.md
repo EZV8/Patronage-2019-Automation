@@ -1,4 +1,4 @@
-# Patronage 2019 - Automated tests ![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)
+# Patronage 2019 - Automated tests for Android ![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)
 Technology Used : Java, JUnit, Selenium, Maven, Cucumber, Appium  
 Framework Used: Page Object Model
 #
