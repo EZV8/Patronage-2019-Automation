@@ -1,14 +1,16 @@
-# Patronage 2019 - Automated tests
+# Patronage 2019 - Automated tests ![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)
+Technology Used : Java, JUnit, Selenium, Maven, Cucumber, Appium  
+Framework Used: Page Object Model
+#
 This repository is created for tracking my progress during Patronage 2019 program. The main build was provided by our Team Leader.  
-Main goal was to create tests for **Android** and **iOS** application, but unfortunately iOS dev team has been disbanded.
-
+The goal was to create tests for **Android** and **iOS** application, but unfortunately iOS dev team has been disbanded.  
 **Repository contains mostly my work, however if some source code is important to proper work of repo, and it wasn't written by me, it will be included and marked.**
 # Getting started
 This simple guide will help you create your entire environment for running tests on **macOS**.
-***
+
 [Install HomeBrew](https://brew.sh) - The missing package manager for macOS.   
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-***
+
 [Install GIT](https://git-scm.com/downloads)  
 `$ brew install git`
 
@@ -42,7 +44,7 @@ This simple guide will help you create your entire environment for running tests
 
 [Install AppiumDoctor](https://github.com/appium/appium-doctor)  
 `$ npm install appium-doctor -g`
-***
+
 Check if everything is properly installed
 ```
 git --version
@@ -56,14 +58,13 @@ Set environment patches.
 If file isn't available - create one and set variables.  
 `$ touch .bash_profile`
 ```
-export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+export M2_HOME=/usr/local/Cellar/maven/"version"/libexec
 export PATH=$PATH:$M2_HOME/bin
-export ANDROID_HOME=/Users/user/Library/Android/sdk
+export ANDROID_HOME=/Users/"user"/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=${JAVA_HOME}/bin:$PATH
 ```
-***
 At the end run AppiumDoctor. It will check if you are able to write and run automated test.   
 `$ appium-doctor`
 ***
